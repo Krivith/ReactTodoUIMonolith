@@ -8,9 +8,20 @@ stages:
       - job: Build_Job
         displayName: npm_install
         steps:
+        - task: NodeTool@0
+          displayName: Install Node.js
+          inputs:
+            versionSource: 'spec'
+            versionSpec: '16.x'
+
         - task: PowerShell@2
+          displayName: Install Dependencies
           inputs:
             targetType: 'inline'
-            script: 'winget install OpenJS.NodeJS.LTS'
+            script: 'npm install'
 
-    
+        - task: PowerShell@2
+          displayName: Build the Project
+          inputs:
+            targetType: 'inline'
+            script: 'npm run build'
