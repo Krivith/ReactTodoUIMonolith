@@ -25,3 +25,9 @@ stages:
           inputs:
             targetType: 'inline'
             script: 'npm run build'
+
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: '$(System.DefaultWorkingDirectory)'
+            artifact: 'todo_Frontend'
+            publishLocation: 'pipeline'
