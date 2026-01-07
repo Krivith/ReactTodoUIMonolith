@@ -2,6 +2,21 @@ trigger: none
 pool: self hosted
 
 stages:
+  - stage: Linting
+    displayName: Linting_stage
+    jobs:
+      - job: Linting_job
+        displayName: Lintingjob
+        steps:
+        - task: PowerShell@2
+          displayName: marksdown linter
+          inputs:
+            targetType: 'inline'
+            script: 'npm install -g markdownlint-cli'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+
+
   - stage: Build
     displayName: Build_Stage
     jobs:
