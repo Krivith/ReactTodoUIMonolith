@@ -19,7 +19,7 @@ stages:
             targetType: 'inline'
             script: |
               npm install markdownlint-cli      
-              markdownlint $(System.DefaultWorkingDirectory)/
+              npx $(System.DefaultWorkingDirectory)/
         - task: PowerShell@2
           displayName: Run_yamllint
           continueOnError: true
