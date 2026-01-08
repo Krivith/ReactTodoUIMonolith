@@ -8,7 +8,10 @@ stages:
       - job: Linting_job
         displayName: Lintingjob
         steps:
-
+        - task: NodeTool@0
+          displayName: Install Node.js
+          inputs:
+            versionSpec: '18.x'
         - task: PowerShell@2
           displayName: Run_marksdown
           continueOnError: true 
