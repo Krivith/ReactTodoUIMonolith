@@ -8,13 +8,14 @@ stages:
       - job: Linting_job
         displayName: Lintingjob
         steps:
+
         - task: PowerShell@2
           displayName: Run_marksdown
           continueOnError: true 
           inputs:
             targetType: 'inline'
             script: |
-              npm install -g markdownlint-cli      
+              npm install markdownlint-cli      
               markdownlint $(System.DefaultWorkingDirectory)/
         - task: PowerShell@2
           displayName: Run_yamllint
