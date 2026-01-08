@@ -5,7 +5,6 @@ pool: Self hosted
 
 jobs:
 - job: lint
-  dependsOn: staticAnalysis
   displayName: Lint
   steps:
   - task: PowerShell@2
