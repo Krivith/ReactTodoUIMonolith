@@ -11,7 +11,7 @@ stages:
         - task: NodeTool@0
           displayName: Install Node.js
           inputs:
-            versionSpec: '18.x'
+            versionSpec: '16.x'
         - task: PowerShell@2
           displayName: Run_marksdown
           continueOnError: true 
@@ -19,7 +19,7 @@ stages:
             targetType: 'inline'
             script: |
               npm install markdownlint-cli      
-              npx $(System.DefaultWorkingDirectory)/
+              marksdown $(System.DefaultWorkingDirectory)/
         - task: PowerShell@2
           displayName: Run_yamllint
           continueOnError: true
