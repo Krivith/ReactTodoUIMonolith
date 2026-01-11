@@ -19,14 +19,14 @@ stages:
             targetType: 'inline'
             script: |
               npm install markdownlint-cli      
-              marksdown $(System.DefaultWorkingDirectory)/
+              markdown $(System.DefaultWorkingDirectory)/
         - task: PowerShell@2
           displayName: Run_yamllint
           continueOnError: true
           inputs:
              targetType: 'inline'
              script: |
-              pip install --user yamllint
+              pip install -g yamllint
               yamllint $(System.DefaultWorkingDirectory)/
         - task: PowerShell@2
           displayName: Run_CSSlint(Stylelint)
@@ -35,7 +35,7 @@ stages:
              targetType: 'inline'
              script: |
               npm install --save-dev stylelint stylelint-config-standard
-               stylelint "src/**/*.css" --config stylelint.config.mjs
+                  stylelint "src/**/*.css" --config stylelint.config.mjs
 
 
 
